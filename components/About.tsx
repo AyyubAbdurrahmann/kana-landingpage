@@ -1,5 +1,5 @@
 import { Card, CardContent } from "./ui/Card";
-import { Eye, Heart, Globe, Lightbulb, Users, Target } from "lucide-react";
+import { Eye, Heart } from "lucide-react";
 
 export default function VisionMissionSection() {
   return (

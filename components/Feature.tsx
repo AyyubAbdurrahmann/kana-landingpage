@@ -1,5 +1,5 @@
 import { Card, CardContent } from "./ui/Card";
-import { Clock, Upload, Target, Brain, Clock as ClockIcon } from "lucide-react";
+import {  Upload, Target, Brain, Clock as ClockIcon } from "lucide-react";
 
 export default function EverythingSection() {
   const items = [
