@@ -1,7 +1,11 @@
+"use client";
+
 import { Card, CardContent } from "./ui/Card";
-import {  Upload, Target, Brain, Clock as ClockIcon } from "lucide-react";
+import { Upload, Target, Brain, Clock as ClockIcon } from "lucide-react";
+import { useScrollAnimation } from "./hooks/useScrollAnimation";
 
 export default function EverythingSection() {
+  // Define items array first
   const items = [
     {
       icon: <Upload className="w-6 h-6" />,
@@ -29,10 +33,20 @@ export default function EverythingSection() {
     },
   ];
 
+  // Initialize cardAnimations after items
+  const headerAnimation = useScrollAnimation({ threshold: 0.2 });
+  const cardAnimations = items.map(() => useScrollAnimation({ threshold: 0.2 }));
+
   return (
     <section id="feature" className="py-12 px-4 bg-gray-50">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
+        {/* Header with animation */}
+        <div
+          ref={headerAnimation.elementRef}
+          className={`text-center mb-12 scroll-animate ${
+            headerAnimation.isVisible ? "visible" : ""
+          }`}
+        >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
             <span className="text-[#000000]">Solusi Lengkap Untuk </span>
             <span className="text-[#4EC0E6]">Kesuksesan Anda</span>
@@ -45,24 +59,29 @@ export default function EverythingSection() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
           {items.map((item, idx) => (
-            <Card
+            <div
               key={idx}
-              className="group bg-white border-0 border-l-4 border-l-[#4EC0E6] rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+              ref={cardAnimations[idx].elementRef}
+              className={`scroll-animate-scale stagger-${idx + 1} ${
+                cardAnimations[idx].isVisible ? "visible" : ""
+              }`}
             >
-              <CardContent className="p-6">
-                <div
-                  className={`w-14 h-14 rounded-2xl mb-6 flex items-center justify-center text-white ${item.bgColor} group-hover:scale-110 transition-all duration-300`}
-                >
-                  {item.icon}
-                </div>
-                <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3 leading-tight">
-                  {item.title}
-                </h3>
-                <p className="text-gray-600 text-sm md:text-base leading-relaxed">
-                  {item.desc}
-                </p>
-              </CardContent>
-            </Card>
+              <Card className="group bg-white border-0 border-l-4 border-l-[#4EC0E6] rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+                <CardContent className="p-6">
+                  <div
+                    className={`w-14 h-14 rounded-2xl mb-6 flex items-center justify-center text-white ${item.bgColor} group-hover:scale-110 transition-all duration-300`}
+                  >
+                    {item.icon}
+                  </div>
+                  <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3 leading-tight">
+                    {item.title}
+                  </h3>
+                  <p className="text-gray-600 text-sm md:text-base leading-relaxed">
+                    {item.desc}
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
           ))}
         </div>
       </div>
