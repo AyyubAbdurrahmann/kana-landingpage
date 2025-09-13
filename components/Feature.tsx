@@ -33,11 +33,20 @@ export default function EverythingSection() {
     },
   ];
 
-  // Initialize cardAnimations after items
+  // Call hooks at the top level for each card
   const headerAnimation = useScrollAnimation({ threshold: 0.2 });
-  const cardAnimations = items.map(() =>
-    useScrollAnimation({ threshold: 0.2 })
-  );
+  const cardAnimation1 = useScrollAnimation({ threshold: 0.2 });
+  const cardAnimation2 = useScrollAnimation({ threshold: 0.2 });
+  const cardAnimation3 = useScrollAnimation({ threshold: 0.2 });
+  const cardAnimation4 = useScrollAnimation({ threshold: 0.2 });
+
+  // Create array of animations after calling hooks
+  const cardAnimations = [
+    cardAnimation1,
+    cardAnimation2,
+    cardAnimation3,
+    cardAnimation4,
+  ];
 
   return (
     <section id="feature" className="py-12 px-4 bg-gray-50">

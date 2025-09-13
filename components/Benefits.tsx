@@ -2,6 +2,7 @@
 
 import { CheckCircle } from "lucide-react";
 import { useScrollAnimation } from "./hooks/useScrollAnimation";
+import Image from "next/image";
 
 export default function WhyChooseKana() {
   const headerAnimation = useScrollAnimation({ threshold: 0.2 });
@@ -65,10 +66,13 @@ export default function WhyChooseKana() {
               imageAnimation.isVisible ? "visible" : ""
             }`}
           >
-            <img
+            <Image
               src="/kanaa.png"
               alt="KANA"
+              width={300} // wajib ada width
+              height={300} // wajib ada height
               className="max-w-xs w-full h-auto"
+              priority // opsional: buat gambar utama
             />
           </div>
         </div>

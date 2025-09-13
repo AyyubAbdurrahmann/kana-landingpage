@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 
 interface NavItem {
   name: string;
@@ -70,7 +71,13 @@ const Navbar: React.FC = () => {
         <div className="flex items-center h-16 relative">
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
-            <img src="/kana.png" alt="KANA Logo" className="w-10 h-10" />
+            <Image
+              src="/kana.png"
+              alt="KANA Logo"
+              width={40}
+              height={40}
+              className="w-10 h-10"
+            />
             <span className="ml-2 text-xl font-bold text-gray-800">KANA</span>
           </div>
 
@@ -155,7 +162,13 @@ const Navbar: React.FC = () => {
         {/* Sidebar Header */}
         <div className="flex items-center justify-between p-4 border-b border-gray-200">
           <div className="flex items-center">
-            <img src="/kana.png" alt="KANA Logo" className="w-8 h-8" />
+            <Image
+              src="/kana.png"
+              alt="KANA Logo"
+              width={32}
+              height={32}
+              className="w-8 h-8"
+            />
             <span className="ml-2 text-lg font-bold text-gray-800">KANA</span>
           </div>
           <button

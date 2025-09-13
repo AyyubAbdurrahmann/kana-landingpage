@@ -37,11 +37,20 @@ export default function HowItWorksSection() {
     },
   ];
 
-  // Initialize animations after steps
+  // Initialize animations at the top level - call hooks before any conditions or loops
   const headerAnimation = useScrollAnimation({ threshold: 0.2 });
-  const cardAnimations = steps.map(() =>
-    useScrollAnimation({ threshold: 0.2 })
-  );
+  const cardAnimation1 = useScrollAnimation({ threshold: 0.2 });
+  const cardAnimation2 = useScrollAnimation({ threshold: 0.2 });
+  const cardAnimation3 = useScrollAnimation({ threshold: 0.2 });
+  const cardAnimation4 = useScrollAnimation({ threshold: 0.2 });
+
+  // Store animations in array for easy access
+  const cardAnimations = [
+    cardAnimation1,
+    cardAnimation2,
+    cardAnimation3,
+    cardAnimation4,
+  ];
 
   return (
     <section
@@ -91,7 +100,6 @@ export default function HowItWorksSection() {
               )}
 
               {/* Flow arrow for mobile/tablet - vertical */}
-            
 
               <Card
                 className="bg-[#F7FBFF] border border-gray-200 rounded-2xl shadow-md hover:shadow-xl hover:scale-105 hover:-translate-y-2 transition-all duration-500 ease-out relative z-10 h-full flex flex-col group-hover:bg-gradient-to-br group-hover:from-[#F7FBFF] group-hover:to-[#E3F2FD]"

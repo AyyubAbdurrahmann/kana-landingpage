@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 
 // Fungsi smooth scroll
 function scrollToSection(targetId: string, duration = 700) {
@@ -43,9 +44,11 @@ const Footer = () => {
             {/* Logo and Brand */}
             <div className="space-y-4">
               <div className="flex items-center justify-center space-x-3">
-                <img
+                <Image
                   src="/kana.png"
                   alt="KANA Logo"
+                  width={48}
+                  height={48}
                   className="w-10 h-10 sm:w-12 sm:h-12"
                 />
                 <h2 className="text-xl sm:text-2xl font-bold">KANA</h2>
@@ -57,9 +60,11 @@ const Footer = () => {
               </p>
 
               <div className="flex items-center justify-center space-x-2">
-                <img
+                <Image
                   src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/instagram.svg"
                   alt="Instagram"
+                  width={20}
+                  height={20}
                   className="w-4 h-4 sm:w-5 sm:h-5"
                   style={{
                     filter:
@@ -132,7 +137,13 @@ const Footer = () => {
               <div className="flex-1 space-y-6">
                 {/* Logo and Brand */}
                 <div className="flex items-center space-x-3">
-                  <img src="/kana.png" alt="KANA Logo" className="w-12 h-12 " />
+                  <Image
+                    src="/kana.png"
+                    alt="KANA Logo"
+                    width={48}
+                    height={48}
+                    className="w-12 h-12"
+                  />
                   <h2 className="text-2xl font-bold">KANA</h2>
                 </div>
 
@@ -144,9 +155,11 @@ const Footer = () => {
 
                 {/* Social Media */}
                 <div className="flex items-center space-x-2">
-                  <img
+                  <Image
                     src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/instagram.svg"
                     alt="Instagram"
+                    width={20}
+                    height={20}
                     className="w-5 h-5"
                     style={{
                       filter:

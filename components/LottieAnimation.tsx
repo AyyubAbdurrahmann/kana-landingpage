@@ -1,5 +1,30 @@
 import { useEffect, useRef } from "react";
 
+// Type definition for Lottie animation instance
+interface LottieAnimationItem {
+  destroy: () => void;
+  play: () => void;
+  pause: () => void;
+  stop: () => void;
+  setSpeed: (speed: number) => void;
+  setDirection: (direction: number) => void;
+  goToAndStop: (value: number, isFrame?: boolean) => void;
+  goToAndPlay: (value: number, isFrame?: boolean) => void;
+}
+
+// Type definition for Lottie module
+interface LottieModule {
+  default: {
+    loadAnimation: (params: {
+      container: HTMLElement;
+      renderer: "svg" | "canvas" | "html";
+      loop: boolean;
+      autoplay: boolean;
+      path: string;
+    }) => LottieAnimationItem;
+  };
+}
+
 interface LottieAnimationProps {
   src: string;
   className?: string;
@@ -16,12 +41,12 @@ export function LottieAnimation({
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    let animationInstance: any = null;
+    let animationInstance: LottieAnimationItem | null = null;
 
     const loadLottie = async () => {
       try {
-        // Dynamically import lottie-web
-        const lottie = await import("lottie-web");
+        // Dynamically import lottie-web with proper typing
+        const lottie = (await import("lottie-web")) as LottieModule;
 
         if (containerRef.current) {
           animationInstance = lottie.default.loadAnimation({
@@ -94,3 +119,4 @@ export function LottieAnimation({
 
   return <div ref={containerRef} className={`lottie-container ${className}`} />;
 }
+  
