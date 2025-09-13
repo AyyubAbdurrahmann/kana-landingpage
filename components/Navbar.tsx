@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import React, { useState } from "react";
 
@@ -33,6 +33,7 @@ function scrollToSection({ targetY, duration = 700 }: ScrollToSectionOptions) {
 
 const Navbar: React.FC = () => {
   const [activeItem, setActiveItem] = useState<string>("beranda");
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
 
   const navItems: NavItem[] = [
     { name: "beranda", href: "#home" },
@@ -43,28 +44,37 @@ const Navbar: React.FC = () => {
 
   const handleItemClick = (itemName: string, href: string) => {
     setActiveItem(itemName);
-    if (href.startsWith('#')) {
-      const targetId = href.replace('#', '');
+    setIsMobileMenuOpen(false); // Tutup mobile menu setelah klik
+
+    if (href.startsWith("#")) {
+      const targetId = href.replace("#", "");
       const targetElement = document.getElementById(targetId);
       if (targetElement) {
         const yOffset = -70; // adjust if navbar height changes
-        const y = targetElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        const y =
+          targetElement.getBoundingClientRect().top +
+          window.pageYOffset +
+          yOffset;
         scrollToSection({ targetY: y, duration: 700 }); // durasi scroll 700ms
       }
     }
   };
 
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
   return (
     <nav className="bg-white shadow-[0_4px_4px_0_rgba(0,0,0,0.1)] sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-0 sm:px-0 lg:px-0">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center h-16 relative">
           {/* Logo */}
-          <div className="flex-shrink-0 flex items-center absolute left-0 top-1/2 -translate-y-1/2 pl-0">
+          <div className="flex-shrink-0 flex items-center">
             <img src="/kana.png" alt="KANA Logo" className="w-10 h-10" />
             <span className="ml-2 text-xl font-bold text-gray-800">KANA</span>
           </div>
 
-          {/* Navigation Items */}
+          {/* Navigation Items - Desktop */}
           <div className="hidden md:flex flex-1 justify-center">
             <div className="flex items-baseline space-x-8">
               {navItems.map((item) => (
@@ -96,26 +106,29 @@ const Navbar: React.FC = () => {
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden absolute right-4 top-1/2 -translate-y-1/2">
+          <div className="md:hidden ml-auto">
             <button
               type="button"
-              className="bg-[#4EC0E6] inline-flex items-center justify-center p-2 rounded-md text-white hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+              onClick={toggleMobileMenu}
+              className="bg-[#4EC0E6] inline-flex items-center justify-center p-2 rounded-md text-white hover:bg-[#3aa8cc] focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white transition-colors duration-200"
               aria-controls="mobile-menu"
-              aria-expanded="false"
+              aria-expanded={isMobileMenuOpen}
             >
-              <span className="sr-only">Open main menu</span>
+              <span className="sr-only">
+                {isMobileMenuOpen ? "Close main menu" : "Open main menu"}
+              </span>
+              {/* Simple SVG Hamburger Icon */}
               <svg
-                className="block h-6 w-6"
-                xmlns="http://www.w3.org/2000/svg"
+                className="w-6 h-6"
                 fill="none"
-                viewBox="0 0 24 24"
                 stroke="currentColor"
-                aria-hidden="true"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  strokeWidth="2"
+                  strokeWidth={2}
                   d="M4 6h16M4 12h16M4 18h16"
                 />
               </svg>
@@ -124,28 +137,110 @@ const Navbar: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile menu */}
-      <div className="md:hidden" id="mobile-menu">
-        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-gray-200">
-          {navItems.map((item) => (
-            <a
-              key={item.name}
-              href={item.href}
-              onClick={(e) => {
-                e.preventDefault();
-                handleItemClick(item.name, item.href);
-              }}
-              className={`block px-3 py-2 text-base font-medium capitalize transition-colors duration-200 ${
-                activeItem === item.name
-                  ? "text-[#4EC0E6] border-l-4 border-[#4EC0E6] bg-[#4EC0E6]/5"
-                  : "text-gray-700 hover:text-[#4EC0E6] hover:bg-gray-50"
-              }`}
+      {/* Backdrop untuk mobile menu */}
+      {isMobileMenuOpen && (
+        <div
+          className="md:hidden fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity duration-300"
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
+      )}
+
+      {/* Mobile Sidebar - slide from right */}
+      <div
+        className={`md:hidden fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white shadow-2xl transform transition-transform duration-300 ease-in-out z-50 ${
+          isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+        id="mobile-menu"
+      >
+        {/* Sidebar Header */}
+        <div className="flex items-center justify-between p-4 border-b border-gray-200">
+          <div className="flex items-center">
+            <img src="/kana.png" alt="KANA Logo" className="w-8 h-8" />
+            <span className="ml-2 text-lg font-bold text-gray-800">KANA</span>
+          </div>
+          <button
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="p-2 rounded-md text-gray-400 hover:text-gray-600 hover:bg-gray-100 transition-colors duration-200"
+          >
+            <span className="sr-only">Close menu</span>
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
             >
-              {item.name}
-            </a>
-          ))}
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+
+        {/* Sidebar Navigation */}
+        <div className="px-4 py-6">
+          <nav className="space-y-2">
+            {navItems.map((item, index) => (
+              <a
+                key={item.name}
+                href={item.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleItemClick(item.name, item.href);
+                }}
+                className={`group flex items-center px-4 py-3 text-base font-medium capitalize rounded-lg transition-all duration-200 ${
+                  activeItem === item.name
+                    ? "text-[#4EC0E6] bg-[#4EC0E6]/10 border-l-4 border-[#4EC0E6]"
+                    : "text-gray-700 hover:text-[#4EC0E6] hover:bg-gray-50"
+                }`}
+                style={{
+                  animationDelay: `${index * 50}ms`,
+                  animation: isMobileMenuOpen
+                    ? "slideInRight 0.3s ease-out forwards"
+                    : "none",
+                }}
+              >
+                <span className="flex-1">{item.name}</span>
+                {activeItem === item.name && (
+                  <svg
+                    className="w-5 h-5 text-[#4EC0E6]"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                )}
+              </a>
+            ))}
+          </nav>
+        </div>
+
+        {/* Sidebar Footer (optional) */}
+        <div className="absolute bottom-6 left-4 right-4">
+          <div className="text-center text-sm text-gray-500">
+            © 2024 KANA. All rights reserved.
+          </div>
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes slideInRight {
+          from {
+            opacity: 0;
+            transform: translateX(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+      `}</style>
     </nav>
   );
 };

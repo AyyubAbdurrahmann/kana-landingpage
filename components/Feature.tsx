@@ -35,7 +35,9 @@ export default function EverythingSection() {
 
   // Initialize cardAnimations after items
   const headerAnimation = useScrollAnimation({ threshold: 0.2 });
-  const cardAnimations = items.map(() => useScrollAnimation({ threshold: 0.2 }));
+  const cardAnimations = items.map(() =>
+    useScrollAnimation({ threshold: 0.2 })
+  );
 
   return (
     <section id="feature" className="py-12 px-4 bg-gray-50">
@@ -67,11 +69,13 @@ export default function EverythingSection() {
               }`}
             >
               <Card className="group bg-white border-0 border-l-4 border-l-[#4EC0E6] rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
-                <CardContent className="p-6">
-                  <div
-                    className={`w-14 h-14 rounded-2xl mb-6 flex items-center justify-center text-white ${item.bgColor} group-hover:scale-110 transition-all duration-300`}
-                  >
-                    {item.icon}
+                <CardContent className="p-6 text-center sm:text-left">
+                  <div className="flex justify-center sm:justify-start mb-6">
+                    <div
+                      className={`w-14 h-14 rounded-2xl flex items-center justify-center text-white ${item.bgColor} group-hover:scale-110 transition-all duration-300`}
+                    >
+                      {item.icon}
+                    </div>
                   </div>
                   <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3 leading-tight">
                     {item.title}

@@ -91,16 +91,7 @@ export default function HowItWorksSection() {
               )}
 
               {/* Flow arrow for mobile/tablet - vertical */}
-              {i < steps.length - 1 && (
-                <div
-                  className="lg:hidden absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-6 w-5 h-12 z-20"
-                  style={{
-                    backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='48' viewBox='0 0 20 48'%3E%3Cpath d='M10 0 L10 38 L5 28 L10 38 L15 28 Z' fill='%234EC0E6' /%3E%3C/svg%3E")`,
-                    backgroundRepeat: "no-repeat",
-                    backgroundPosition: "center",
-                  }}
-                />
-              )}
+            
 
               <Card
                 className="bg-[#F7FBFF] border border-gray-200 rounded-2xl shadow-md hover:shadow-xl hover:scale-105 hover:-translate-y-2 transition-all duration-500 ease-out relative z-10 h-full flex flex-col group-hover:bg-gradient-to-br group-hover:from-[#F7FBFF] group-hover:to-[#E3F2FD]"
