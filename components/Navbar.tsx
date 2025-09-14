@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 
 interface NavItem {
@@ -42,6 +42,45 @@ const Navbar: React.FC = () => {
     { name: "cara kerja", href: "#howitworks" },
     { name: "fitur", href: "#feature" },
   ];
+
+  // Fungsi untuk mendeteksi section mana yang sedang aktif berdasarkan scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = navItems.map((item) => ({
+        name: item.name,
+        element: document.getElementById(item.href.replace("#", "")),
+      }));
+
+      const scrollPosition = window.scrollY + 100; // offset untuk navbar
+
+      // Cari section yang sedang aktif
+      let currentSection = sections[0].name; // default ke beranda
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = sections[i];
+        if (section.element) {
+          const sectionTop = section.element.offsetTop;
+          if (scrollPosition >= sectionTop) {
+            currentSection = section.name;
+            break;
+          }
+        }
+      }
+
+      setActiveItem(currentSection);
+    };
+
+    // Jalankan handleScroll saat component mount
+    handleScroll();
+
+    // Tambahkan event listener untuk scroll
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    // Cleanup event listener saat component unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const handleItemClick = (itemName: string, href: string) => {
     setActiveItem(itemName);
