@@ -29,16 +29,16 @@ export default function HeroSection() {
 
               <h1 className="text-5xl lg:text-7xl font-bold text-[#000000] leading-tight">
                 Belajar Lebih Singkat,
-                <span className="block bg-gradient-to-r from-[#87CEEB] via-[#7dd3fc] to-[#87CEEB] bg-clip-text text-transparent animate-pulse">
+                <span className="block bg-gradient-to-r from-[#87CEEB] via-[#7dd3fc] to-[#87CEEB] bg-clip-text text-transparent animate-pulse mt-2">
                   Lebih Seru, Lebih Konsisten
                 </span>
               </h1>
 
               <p className="text-xl lg:text-2xl text-gray-600 leading-relaxed max-w-xl">
-                Kana mengubah materi pelajaran menjadi kuis interaktif dan modul
-                ringkas (nano learning). Dengan Adaptive Learning, setiap siswa
-                mendapat pengalaman personal sesuai kebutuhannya, sementara
-                gamifikasi menjaga motivasi tetap tinggi.
+                <b>Kana </b>mengubah materi pelajaran menjadi kuis interaktif
+                dan modul ringkas (nano learning). Dengan Adaptive Learning,
+                setiap siswa mendapat pengalaman personal sesuai kebutuhannya,
+                sementara gamifikasi menjaga motivasi tetap tinggi.
               </p>
             </div>
           </div>

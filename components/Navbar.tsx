@@ -453,7 +453,7 @@ Waktu terbaik untuk demo: Senin-Jumat, 09:00-17:00 WIB`,
           {/* Sidebar Footer */}
           <div className="absolute bottom-6 left-4 right-4">
             <div className="text-center text-sm text-gray-500">
-              © 2024 KANA. All rights reserved.
+              © 2025 KANA. All rights reserved.
             </div>
           </div>
         </div>
