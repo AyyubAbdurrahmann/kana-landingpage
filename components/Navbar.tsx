@@ -113,7 +113,7 @@ Dengan mengklik "Mulai Demo", kami akan:
 ✅ Demonstrasi gratis sesuai kebutuhan sekolah
 
 Siap untuk mengalami pembelajaran yang lebih efektif?`,
-      confirmText: "🎯 Mulai Demo Sekarang",
+      confirmText: "ajukan demo sekarang",
       cancelText: "Nanti Saja",
       confirmVariant: "primary" as const,
       size: "md" as const,
@@ -437,7 +437,7 @@ Waktu terbaik untuk demo: Senin-Jumat, 09:00-17:00 WIB`,
                 fullWidth={true}
                 onClick={handleDaftarClick}
                 className="shadow-md"
-                startIcon={<UserPlusIcon />}
+                
                 style={{
                   animationDelay: `${navItems.length * 50}ms`,
                   animation: isMobileMenuOpen
