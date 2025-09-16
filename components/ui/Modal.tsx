@@ -31,9 +31,9 @@ const Modal: React.FC<ModalProps> = ({
   if (!isOpen) return null;
 
   const sizeClasses = {
-    sm: "max-w-xs sm:max-w-sm",
-    md: "max-w-sm sm:max-w-md lg:max-w-lg",
-    lg: "max-w-md sm:max-w-lg lg:max-w-xl xl:max-w-2xl",
+    sm: "max-w-sm",
+    md: "max-w-md",
+    lg: "max-w-lg",
   };
 
   const confirmButtonClasses = {
@@ -47,9 +47,9 @@ const Modal: React.FC<ModalProps> = ({
     switch (confirmVariant) {
       case "success":
         return (
-          <div className="mx-auto flex items-center justify-center h-10 w-10 sm:h-12 sm:w-12 rounded-full bg-green-100 mb-3 sm:mb-4">
+          <div className="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100 mb-4">
             <svg
-              className="h-5 w-5 sm:h-6 sm:w-6 text-green-600"
+              className="h-6 w-6 text-green-600"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -65,9 +65,9 @@ const Modal: React.FC<ModalProps> = ({
         );
       case "warning":
         return (
-          <div className="mx-auto flex items-center justify-center h-10 w-10 sm:h-12 sm:w-12 rounded-full bg-yellow-100 mb-3 sm:mb-4">
+          <div className="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-yellow-100 mb-4">
             <svg
-              className="h-5 w-5 sm:h-6 sm:w-6 text-yellow-600"
+              className="h-6 w-6 text-yellow-600"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -83,9 +83,9 @@ const Modal: React.FC<ModalProps> = ({
         );
       case "danger":
         return (
-          <div className="mx-auto flex items-center justify-center h-10 w-10 sm:h-12 sm:w-12 rounded-full bg-red-100 mb-3 sm:mb-4">
+          <div className="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-red-100 mb-4">
             <svg
-              className="h-5 w-5 sm:h-6 sm:w-6 text-red-600"
+              className="h-6 w-6 text-red-600"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -101,9 +101,9 @@ const Modal: React.FC<ModalProps> = ({
         );
       default:
         return (
-          <div className="mx-auto flex items-center justify-center h-10 w-10 sm:h-12 sm:w-12 rounded-full bg-blue-100 mb-3 sm:mb-4">
+          <div className="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-blue-100 mb-4">
             <svg
-              className="h-5 w-5 sm:h-6 sm:w-6 text-[#4EC0E6]"
+              className="h-6 w-6 text-[#4EC0E6]"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -129,62 +129,41 @@ const Modal: React.FC<ModalProps> = ({
       />
 
       {/* Modal */}
-      <div className="flex min-h-full items-end sm:items-center justify-center p-3 sm:p-4 md:p-6">
+      <div className="flex min-h-full items-center justify-center p-4">
         <div
-          className={`relative bg-white rounded-t-xl sm:rounded-lg shadow-xl transform transition-all duration-300 w-full ${sizeClasses[size]} max-h-[90vh] overflow-y-auto`}
+          className={`relative bg-white rounded-lg shadow-xl transform transition-all duration-300 w-full ${sizeClasses[size]}`}
           onClick={(e) => e.stopPropagation()}
         >
-          {/* Close button for mobile */}
-          <button
-            onClick={onClose}
-            className="absolute top-3 right-3 sm:top-4 sm:right-4 p-1 rounded-full hover:bg-gray-100 transition-colors duration-200 z-10"
-            aria-label="Close modal"
-          >
-            <svg
-              className="w-5 h-5 sm:w-6 sm:h-6 text-gray-400 hover:text-gray-600"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          </button>
-
           {/* Modal Content */}
-          <div className="p-4 sm:p-6 pt-12 sm:pt-6">
+          <div className="p-6">
             {showIcon && getIcon()}
 
             {title && (
-              <h3 className="text-base sm:text-lg font-semibold text-gray-900 text-center mb-3 sm:mb-4 pr-6 sm:pr-0">
+              <h3 className="text-lg font-semibold text-gray-900 text-center mb-4">
                 {title}
               </h3>
             )}
 
-            <div className="text-center mb-4 sm:mb-6">
-              <p className="text-sm sm:text-base text-gray-600 leading-relaxed whitespace-pre-line px-2 sm:px-0">
+            <div className="text-center mb-6">
+              <p className="text-gray-600 leading-relaxed whitespace-pre-line">
                 {message}
               </p>
-              {children && <div className="mt-3 sm:mt-4">{children}</div>}
+              {children && <div className="mt-4">{children}</div>}
             </div>
 
             {/* Actions */}
-            <div className="flex flex-col-reverse sm:flex-row gap-2 sm:gap-3 justify-center px-2 sm:px-0">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-3 justify-center">
               <button
                 type="button"
                 onClick={onClose}
-                className="w-full sm:w-auto px-4 sm:px-6 py-2.5 sm:py-2 border border-gray-300 rounded-md text-sm sm:text-base text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#4EC0E6] transition-colors duration-200 font-medium order-2 sm:order-1"
+                className="px-6 py-2 border border-gray-300 rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#4EC0E6] transition-colors duration-200 font-medium"
               >
                 {cancelText}
               </button>
               <button
                 type="button"
                 onClick={onConfirm}
-                className={`w-full sm:w-auto px-4 sm:px-6 py-2.5 sm:py-2 rounded-md text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#4EC0E6] transition-colors duration-200 font-medium order-1 sm:order-2 ${confirmButtonClasses[confirmVariant]}`}
+                className={`px-6 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#4EC0E6] transition-colors duration-200 font-medium ${confirmButtonClasses[confirmVariant]}`}
               >
                 {confirmText}
               </button>
