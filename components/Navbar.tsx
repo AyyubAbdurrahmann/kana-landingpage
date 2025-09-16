@@ -102,17 +102,10 @@ const Navbar: React.FC = () => {
 
     // Contoh dengan custom modal config
     const customModalConfig = {
-      title: "🚀 Demo Kana - Learning Management System",
+      title: "Demo Kana - Learning Management System",
       message: `Halo! Terima kasih telah tertarik dengan Kana LMS.
 
-Kami sangat senang bisa membantu sekolah Anda mengoptimalkan proses pembelajaran dengan teknologi terdepan.
-
-Dengan mengklik "Mulai Demo", kami akan:
-✅ Membuka template email yang sudah disiapkan
-✅ Tim ahli kami akan menghubungi dalam 24 jam
-✅ Demonstrasi gratis sesuai kebutuhan sekolah
-
-Siap untuk mengalami pembelajaran yang lebih efektif?`,
+Kami sangat senang bisa membantu sekolah Anda mengoptimalkan proses pembelajaran dengan teknologi terdepan.`,
       confirmText: "ajukan demo sekarang",
       cancelText: "Nanti Saja",
       confirmVariant: "primary" as const,
@@ -437,7 +430,6 @@ Waktu terbaik untuk demo: Senin-Jumat, 09:00-17:00 WIB`,
                 fullWidth={true}
                 onClick={handleDaftarClick}
                 className="shadow-md"
-                
                 style={{
                   animationDelay: `${navItems.length * 50}ms`,
                   animation: isMobileMenuOpen

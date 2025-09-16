@@ -31,13 +31,10 @@ export default function WhyChooseKana() {
               }`}
             >
               <h2 className="text-4xl font-bold mb-4">
-                <span className="text-[#000000]">Kenapa Harus </span>
+                <span className="text-[#000000]">Mengapa </span>
                 <span className="text-[#4EC0E6]">KANA? </span>
               </h2>
-              <p className="text-xl text-gray-600 mb-8">
-                Ribuan pendidik telah meningkatkan metode pengajaran mereka
-                dengan bantuan platform AI kami — kini giliran Anda
-              </p>
+            
             </div>
 
             {/* Benefits List with animation */}

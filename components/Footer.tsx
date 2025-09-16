@@ -55,8 +55,7 @@ const Footer = () => {
               </div>
 
               <p className="text-white/90 text-sm sm:text-base leading-relaxed px-4">
-                KANA adalah platform edukasi berbasis AI untuk pembelajaran yang
-                lebih interaktif dan efektif.
+              Platform nano learning berbasis AI yang menghadirkan pembelajaran adaptif dan gamified. Belajar jadi lebih singkat, interaktif, dan menyenangkan.
               </p>
 
               <div className="flex items-center justify-center space-x-2">

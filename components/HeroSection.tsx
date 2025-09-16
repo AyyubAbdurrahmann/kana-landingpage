@@ -1,10 +1,6 @@
 "use client";
 import React from "react";
-
-import {
-  Sparkles,
- 
-} from "lucide-react";
+import { Sparkles } from "lucide-react";
 import { LottieAnimation } from "./LottieAnimation";
 
 export default function HeroSection() {
@@ -34,11 +30,11 @@ export default function HeroSection() {
                 </span>
               </h1>
 
-              <p className="text-xl lg:text-2xl text-gray-600 leading-relaxed max-w-xl">
+              <p className="text-xl lg:text-2xl text-gray-600 leading-relaxed break-words max-w-xl">
                 <b>Kana </b>mengubah materi pelajaran menjadi kuis interaktif
                 dan modul ringkas (nano learning). Dengan Adaptive Learning,
                 setiap siswa mendapat pengalaman personal sesuai kebutuhannya,
-                sementara gamifikasi menjaga motivasi tetap tinggi.
+                sementara gamifikasi menjaga motivasi tetap tinggi.
               </p>
             </div>
           </div>
