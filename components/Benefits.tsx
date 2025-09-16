@@ -10,11 +10,11 @@ export default function WhyChooseKana() {
   const imageAnimation = useScrollAnimation({ threshold: 0.2 });
 
   const benefits = [
-    "Lacak progress siswa dan analitik performa",
-    "Hasilkan kuis interaktif dari berbagai jenis dokumen dengan mudah.",
-    "Dirancang khusus untuk usia 6–12 tahun agar pengalaman belajar lebih menyenangkan.",
-    "AI kami menyesuaikan materi agar lebih efektif untuk proses pembelajaran.",
-    "Menyediakan ruang belajar yang terlindungi, nyaman, dan terpercaya.",
+    "Belajar singkat tapi konsisten berkat Nano Learning",
+    "Materi otomatis disesuaikan dengan kebutuhan setiap siswa lewat Adaptive Learning",
+    "Lebih seru dengan pengalaman gamifikasi yang membuat belajar terasa seperti bermain",
+    "Mudah digunakan oleh guru, menarik bagi siswa",
+    "Aman, nyaman, dan ramah anak",
   ];
 
   return (

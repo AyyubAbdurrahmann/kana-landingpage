@@ -10,29 +10,28 @@ export default function HowItWorksSection() {
     {
       step: "01",
       title: "Unggah Dokumen Anda",
-      description:
-        "Unggah atau tarik dokumen Anda langsung ke dalam platform kami dengan mudah.",
+      description: "Guru cukup seret dan lepas materi ke platform Kana.",
       icon: <Upload className="w-6 h-6 sm:w-8 sm:h-8 text-white" />,
     },
     {
       step: "02",
       title: "AI Memproses Konten",
       description:
-        "Teknologi AI kami menganalisis materi dan menyoroti konsep pembelajaran utama secara otomatis.",
+        "Materi diubah menjadi modul nano learning dengan poin-poin inti yang mudah dicerna.",
       icon: <Brain className="w-6 h-6 sm:w-8 sm:h-8 text-white" />,
     },
     {
       step: "03",
-      title: "Buat Kuis Interaktif",
+      title: "Kuis Interaktif",
       description:
-        "Hasilkan kuis siap pakai dengan berbagai tipe pertanyaan dan tingkat kesulitan yang dapat disesuaikan.",
+        "AI menghasilkan kuis dengan pertanyaan bervariasi untuk menjaga siswa tetap terlibat dan fokus.",
       icon: <Target className="w-6 h-6 sm:w-8 sm:h-8 text-white" />,
     },
     {
       step: "04",
-      title: "Pantau Progres Siswa",
+      title: "Adaptive Progress Tracking",
       description:
-        "Lacak perkembangan belajar siswa melalui analitik yang detail serta wawasan performa yang mudah dipahami.",
+        "Siswa dipandu dengan rekomendasi belajar yang disesuaikan, sementara guru memantau performa lewat analitik detail.",
       icon: <BarChart3 className="w-6 h-6 sm:w-8 sm:h-8 text-white" />,
     },
   ];

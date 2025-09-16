@@ -1,34 +1,42 @@
 "use client";
 
 import { Card, CardContent } from "./ui/Card";
-import { Upload, Target, Brain, Clock as ClockIcon } from "lucide-react";
+import {
+  Upload,
+  Target,
+  Brain,
+  Book,
+  Settings,
+  BarChart2,
+  Clock as ClockIcon,
+} from "lucide-react";
 import { useScrollAnimation } from "./hooks/useScrollAnimation";
 
 export default function EverythingSection() {
   // Define items array first
   const items = [
     {
-      icon: <Upload className="w-6 h-6" />,
-      title: "Unggah Dokumen dengan Mudah",
-      desc: "Tidak perlu keahlian teknis. Cukup seret dokumen Anda dan biarkan KANA menangani sisanya dengan pemrosesan cerdas.",
+      icon: <Book className="w-6 h-6" />,
+      title: "Nano Learning",
+      desc: "Materi dipecah menjadi bagian-bagian kecil yang mudah dicerna, sehingga bisa dipelajari kapan saja dan di mana saja.",
       bgColor: "bg-[#87CEEB]",
     },
     {
-      icon: <Brain className="w-6 h-6" />,
-      title: "Kuis Otomatis dengan AI",
-      desc: "Unggah dokumen apa saja dan saksikan AI kami langsung membuat kuis interaktif yang menarik sesuai konten Anda.",
-      bgColor: "bg-[#87CEEB]",
-    },
-    {
-      icon: <ClockIcon className="w-6 h-6" />,
-      title: "Kuis Siap Pakai dalam Hitungan Menit",
-      desc: "Dari dokumen ke kuis interaktif dalam hitungan menit, bukan jam. Hemat waktu dan fokus pada yang terpenting - mengajar.",
+      icon: <Settings className="w-6 h-6" />,
+      title: "Adaptive Learning",
+      desc: "Tingkat kesulitan, jenis soal, dan rekomendasi belajar disesuaikan secara otomatis untuk kebutuhan unik setiap siswa.",
       bgColor: "bg-[#87CEEB]",
     },
     {
       icon: <Target className="w-6 h-6" />,
+      title: "Gamified Experience",
+      desc: "Elemen interaktif dan permainan dirancang untuk membuat belajar lebih menyenangkan dan menjaga motivasi siswa tetap tinggi.",
+      bgColor: "bg-[#87CEEB]",
+    },
+    {
+      icon: <BarChart2 className="w-6 h-6" />,
       title: "Analitik Progres Siswa",
-      desc: "Pantau progres siswa secara real-time dengan analitik detail dan wawasan pembelajaran yang dipersonalisasi.",
+      desc: "Guru dapat memantau perkembangan siswa secara menyeluruh dan mendalam, memberikan intervensi yang tepat waktu.",
       bgColor: "bg-[#87CEEB]",
     },
   ];
@@ -59,8 +67,8 @@ export default function EverythingSection() {
           }`}
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-            <span className="text-[#000000]">Solusi Lengkap Untuk </span>
-            <span className="text-[#4EC0E6]">Kesuksesan Anda</span>
+            <span className="text-[#000000]">Fitur </span>
+            <span className="text-[#4EC0E6]">Unggulan</span>
           </h2>
           <p className="text-base md:text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
             Semua fitur penting untuk membantu guru membuat, mengelola, dan

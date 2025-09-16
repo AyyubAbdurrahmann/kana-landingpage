@@ -149,8 +149,7 @@ const Footer = () => {
 
                 {/* Description */}
                 <p className="text-white/90 text-lg leading-relaxed max-w-md">
-                  KANA adalah platform kuis berbasis AI untuk pembelajaran yang
-                  lebih interaktif dan efektif.
+                   Platform nano learning berbasis AI yang menghadirkan pembelajaran adaptif dan gamified. Belajar jadi lebih singkat, interaktif, dan menyenangkan.
                 </p>
 
                 {/* Social Media */}
@@ -202,7 +201,7 @@ const Footer = () => {
                       }}
                       className="text-white/90 hover:text-white transition-colors duration-200 text-lg block"
                     >
-                      Tentang
+                      Visi Misi
                     </a>
                   </li>
                   <li>
