@@ -7,7 +7,6 @@ import Modal from "./ui/Modal";
 import { useModal } from "./utils/UseModals";
 import {
   handleKanaDemoEmailWithCustomModal,
-  getDefaultModalConfigs,
   type KanaDemoEmailParams,
 } from "./utils/emailHandler";
 
@@ -124,51 +123,6 @@ Kami sangat senang bisa membantu sekolah Anda mengoptimalkan proses pembelajaran
       showCustomModal,
       emailParams,
       customModalConfig
-    );
-  };
-
-  // Alternative: Menggunakan modal config yang sudah ada
-  const handleDaftarClickSimple = () => {
-    setIsMobileMenuOpen(false);
-
-    handleKanaDemoEmailWithCustomModal(showCustomModal, {
-      schoolName: "Sekolah Anda",
-    });
-  };
-
-  // Alternative: Modal dengan konten custom yang lebih complex
-  const handleDaftarClickAdvanced = () => {
-    setIsMobileMenuOpen(false);
-
-    const advancedConfig = {
-      title: "Bergabung dengan 500+ Sekolah",
-      message: `Kana telah membantu berbagai institusi pendidikan:
-
-📚 SMA Negeri 1 Jakarta - "Nilai rata-rata siswa naik 25%"
-🎓 SMK Bina Nusantara - "Efisiensi admin meningkat 80%"
-📖 MAN 2 Bandung - "Engagement siswa lebih tinggi"
-
-Tim support kami siap memberikan:
-• Konsultasi gratis sesuai kebutuhan
-• Demo personal dengan fitur lengkap
-• Panduan implementasi step-by-step
-• Training untuk admin dan guru
-
-Waktu terbaik untuk demo: Senin-Jumat, 09:00-17:00 WIB`,
-      confirmText: "Ya, Saya Tertarik!",
-      cancelText: "Belum Sekarang",
-      confirmVariant: "success" as const,
-      size: "lg" as const,
-    };
-
-    handleKanaDemoEmailWithCustomModal(
-      showCustomModal,
-      {
-        schoolName: "Sekolah Anda",
-        customMessage:
-          "Setelah membaca testimoni di atas, kami sangat tertarik untuk mengimplementasikan Kana di sekolah kami.",
-      },
-      advancedConfig
     );
   };
 
@@ -421,6 +375,11 @@ Waktu terbaik untuk demo: Senin-Jumat, 09:00-17:00 WIB`,
                 </a>
               ))}
             </nav>
+
+            {/* Centered Text for Mobile */}
+            <div className="mt-4 text-center text-sm font-medium text-gray-800 md:hidden">
+              Belajar Lebih Singkat, Lebih Seru, Lebih Konsisten
+            </div>
 
             {/* Daftar Button - Mobile */}
             <div className="mt-6 px-4">
