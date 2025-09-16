@@ -23,7 +23,7 @@ export default function HeroSection() {
                 </span>
               </div>
 
-              <h1 className="text-5xl lg:text-7xl font-bold text-[#000000] leading-tight">
+              <h1 className="text-5xl lg:text-7xl font-bold text-[#000000] leading-tight text-center sm:text-left">
                 Belajar Lebih Singkat,
                 <span className="block bg-gradient-to-r from-[#87CEEB] via-[#7dd3fc] to-[#87CEEB] bg-clip-text text-transparent animate-pulse mt-2">
                   Lebih Seru, Lebih Konsisten

@@ -376,11 +376,8 @@ Kami sangat senang bisa membantu sekolah Anda mengoptimalkan proses pembelajaran
               ))}
             </nav>
 
-            {/* Centered Text for Mobile */}
-            <div className="mt-4 text-center text-sm font-medium text-gray-800 md:hidden">
-              Belajar Lebih Singkat, Lebih Seru, Lebih Konsisten
-            </div>
-
+            
+           
             {/* Daftar Button - Mobile */}
             <div className="mt-6 px-4">
               <Button
